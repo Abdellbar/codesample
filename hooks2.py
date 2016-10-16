@@ -58,7 +58,8 @@ def removefile(path):
        os.remove(path)
    except Exception as error:
        app.logger.error("Error removing or closing downloaded file handle", error)
-       print "error removing file"
+       print "error removing file" 
+       print error
    return "OK"
 
 if __name__ == '__main__':

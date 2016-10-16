@@ -6,6 +6,7 @@ import json
 from sparkapi import sparkapi
 from memeapi import memeapi
 import shutil
+import os
 
 
 app = Flask(__name__)

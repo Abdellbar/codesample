@@ -42,6 +42,13 @@ def parsing():
 
    sparkbot.post_file(str(roomId),image_name)
 
+   try:
+       os.remove(image_name)
+   except Exception as error:
+       app.logger.error("Error removing or closing downloaded file handle", error)
+       print "error removing file" 
+       print error
+  
 
    return 'OK'
 

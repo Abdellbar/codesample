@@ -70,7 +70,7 @@ def images(path):
     return resp
 
 @app.route("/txt/<path:path>")
-def images(path):
+def txt_files(path):
     #generate_img(path)
     fullpath =  path # "./imgs/" + path
     resp = flask.make_response(open(fullpath).read())

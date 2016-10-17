@@ -22,6 +22,7 @@ def parsing():
    print "parrsed"
    #print format(data['data']['id'])
    msg_id = data['data']['id']
+   roomId = data['data']['roomId']
    input_list = sparkbot.get_msg(str(msg_id))
    #print input_list
    #print word.split()[1]
@@ -38,7 +39,7 @@ def parsing():
       del image_file
 
 
-      roomId = data['data']['roomId']
+      
       print roomId
       sparkbot.post_msg(str(roomId),"got that")
       print "hello"

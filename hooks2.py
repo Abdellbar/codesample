@@ -23,6 +23,7 @@ def parsing():
    #print format(data['data']['id'])
    msg_id = data['data']['id']
    roomId = data['data']['roomId']
+   print msg_id
    input_ret = sparkbot.get_msg(str(msg_id))
    #print input_list
    #print word.split()[1]

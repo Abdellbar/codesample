@@ -31,10 +31,7 @@ def parsing():
 
    if str(input_ret[1]) == 'help' :
       print "in help"
-      with open ("help.txt", "r") as myfile:
-           help_file=myfile.read()
-
-      sparkbot.post_msg(str(roomId),help_file)
+      sparkbot.post_txt_file(str(roomId),image_name)
    else: 
       print "in genral "
       input_list = input_ret[1].split('|')
@@ -72,6 +69,13 @@ def images(path):
     resp.content_type = "image/jpeg"
     return resp
 
+@app.route("/txt/<path:path>")
+def images(path):
+    #generate_img(path)
+    fullpath =  path # "./imgs/" + path
+    resp = flask.make_response(open(fullpath).read())
+    resp.content_type = "text/xml"
+    return resp
 
 @app.route("/delete/<path:path>")
 def removefile(path):

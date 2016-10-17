@@ -36,6 +36,15 @@ class sparkapi:
       params=json.dumps({"roomId":grp,"files":["https://secret-brushlands-95547.herokuapp.com/imgs/"+file_o]})
     )    
 
+  def post_txt_file(self,grp,file_o):
+
+    response = unirest.post("https://api.ciscospark.com/v1/messages/", 
+      headers={
+        "Authorization": "Bearer MGVjZGIxYTItZmU2OS00OTcwLWE1NjItMjVmZjM0YmZmMTlmN2VmMTQ4OTctYTY4",
+        "Content-Type":"application/json"},
+      params=json.dumps({"roomId":grp,"files":["https://secret-brushlands-95547.herokuapp.com/txt/"+file_o]})
+    )  
+
 """    
 app = sparkapi()
 

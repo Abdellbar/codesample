@@ -30,8 +30,13 @@ def parsing():
    print str(input_ret[1])
 
    if str(input_ret[1]) == 'help' :
-      sparkbot.post_file(str(roomId),'help.txt')
+      print "in help"
+      with open ("help.txt", "r") as myfile:
+           help_file=myfile.readlines()
+
+      sparkbot.post_msg(str(roomId),help_file)
    else: 
+      print "in genral "
       input_list = input_ret[1].split('|')
       image_file=memegen.get_image(input_list[0],input_list[1],input_list[2])
       print  "done"
@@ -66,6 +71,7 @@ def images(path):
     resp = flask.make_response(open(fullpath).read())
     resp.content_type = "image/jpeg"
     return resp
+
 
 @app.route("/delete/<path:path>")
 def removefile(path):

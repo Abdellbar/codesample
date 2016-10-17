@@ -25,29 +25,32 @@ def parsing():
    input_list = sparkbot.get_msg(str(msg_id))
    #print input_list
    #print word.split()[1]
-   
-   image_file=memegen.get_image(input_list[0],input_list[1],input_list[2])
-   print  "done"
 
-   image_name = str(msg_id) +'.jpeg'
-   with open(image_name, 'wb') as out_file:
-         shutil.copyfileobj(image_file.raw, out_file)
-   del image_file
+   if input_list[0] == 'help' :
+      sparkbot.post_file(str(roomId),'help.txt')
+   else: 
+      image_file=memegen.get_image(input_list[0],input_list[1],input_list[2])
+      print  "done"
+
+      image_name = str(msg_id) +'.jpeg'
+      with open(image_name, 'wb') as out_file:
+            shutil.copyfileobj(image_file.raw, out_file)
+      del image_file
 
 
-   roomId = data['data']['roomId']
-   print roomId
-   sparkbot.post_msg(str(roomId),"got that")
-   print "hello"
+      roomId = data['data']['roomId']
+      print roomId
+      sparkbot.post_msg(str(roomId),"got that")
+      print "hello"
 
-   sparkbot.post_file(str(roomId),image_name)
+      sparkbot.post_file(str(roomId),image_name)
 
-   try:
-       os.remove(image_name)
-   except Exception as error:
-       app.logger.error("Error removing or closing downloaded file handle", error)
-       print "error removing file" 
-       print error
+      try:
+          os.remove(image_name)
+      except Exception as error:
+          app.logger.error("Error removing or closing downloaded file handle", error)
+          print "error removing file" 
+          print error
   
 
    return 'OK'

@@ -74,7 +74,7 @@ def txt_files(path):
     #generate_img(path)
     fullpath =  path # "./imgs/" + path
     resp = flask.make_response(open(fullpath).read())
-    resp.content_type = "text/xml"
+    resp.content_type = "text/plain"
     return resp
 
 @app.route("/delete/<path:path>")

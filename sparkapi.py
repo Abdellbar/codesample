@@ -15,7 +15,10 @@ class sparkapi:
     )
     cmnd_text = response.body['text'].split(' ',1)
     print cmnd_text
-    cmnd_list = cmnd_text[1].split('|')
+    try:
+      cmnd_list = cmnd_text[1].split('|')
+    except Exception as error:
+      print "error 1"
     #print string
     return cmnd_list
   def post_msg(self,grp,msg):

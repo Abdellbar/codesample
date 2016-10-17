@@ -15,12 +15,9 @@ class sparkapi:
     )
     cmnd_text = response.body['text'].split(' ',1)
     print cmnd_text
-    try:
-      cmnd_list = cmnd_text[1].split('|')
-    except Exception as error:
-      print "error 1"
+    #cmnd_list = cmnd_text[1].split('|')
     #print string
-    return cmnd_list
+    return cmnd_text
   def post_msg(self,grp,msg):
     response = unirest.post("https://api.ciscospark.com/v1/messages/",
       headers={

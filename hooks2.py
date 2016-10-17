@@ -23,13 +23,14 @@ def parsing():
    #print format(data['data']['id'])
    msg_id = data['data']['id']
    roomId = data['data']['roomId']
-   input_list = sparkbot.get_msg(str(msg_id))
+   input_ret = sparkbot.get_msg(str(msg_id))
    #print input_list
    #print word.split()[1]
 
-   if input_list[0] == 'help' :
+   if input_ret[0] == 'help' :
       sparkbot.post_file(str(roomId),'help.txt')
    else: 
+      input_list = input_ret[1].split('|')
       image_file=memegen.get_image(input_list[0],input_list[1],input_list[2])
       print  "done"
 

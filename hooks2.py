@@ -26,8 +26,9 @@ def parsing():
    input_ret = sparkbot.get_msg(str(msg_id))
    #print input_list
    #print word.split()[1]
-
-   if input_ret[0] == 'help' :
+   print str(input_ret[0])
+   
+   if str(input_ret[0]) == 'help' :
       sparkbot.post_file(str(roomId),'help.txt')
    else: 
       input_list = input_ret[1].split('|')

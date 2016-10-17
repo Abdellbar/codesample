@@ -32,7 +32,7 @@ def parsing():
    if str(input_ret[1]) == 'help' :
       print "in help"
       with open ("help.txt", "r") as myfile:
-           help_file=myfile.readlines()
+           help_file=myfile.read()
 
       sparkbot.post_msg(str(roomId),help_file)
    else: 

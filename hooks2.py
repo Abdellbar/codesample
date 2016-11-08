@@ -33,7 +33,7 @@ def parsing():
       print "in help"
       sparkbot.post_txt_file(str(roomId),'help.txt')
 
-   if str(input_ret[1]) == 'abdel' :
+   if str(input_ret[1]).startswith('abdel'):
       sparkbot.post_msg(str(roomId),"What happens on red sofa stays on red sofa !")
       sparkbot.post_file(str(roomId),'red_sofa.jpeg')
    else: 

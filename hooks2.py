@@ -32,6 +32,10 @@ def parsing():
    if str(input_ret[1]) == 'help' :
       print "in help"
       sparkbot.post_txt_file(str(roomId),'help.txt')
+
+   if str(input_ret[1]) == 'abdel' :
+      sparkbot.post_msg(str(roomId),"What happens on red sofa stays on red sofa !")
+      sparkbot.post_file(str(roomId),'red_sofa.jpeg')
    else: 
       print "in genral "
       input_list = input_ret[1].split('|')

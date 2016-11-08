@@ -29,38 +29,32 @@ def parsing():
    #print word.split()[1]
    print str(input_ret[1])
 
-   if str(input_ret[0]) == 'MemeGenrator':
-       if str(input_ret[1]) == 'help' :
-          print "in help"
-          sparkbot.post_txt_file(str(roomId),'help.txt')
-       elif str(input_ret[1])== 'abdel' :
-          sparkbot.post_msg(str(roomId),"what hapens on the red sofa stays on the red sofa !")
-          sparkbot.post_file(str(roomId),"red_sofa.jpeg")
-       else: 
-          print "in genral "
-          input_list = input_ret[1].split('|')
-          image_file=memegen.get_image(input_list[0],input_list[1],input_list[2])
-          print  "done"
+   if str(input_ret[1]) == 'help' :
+      print "in help"
+      sparkbot.post_txt_file(str(roomId),'help.txt')
+   else: 
+      print "in genral "
+      input_list = input_ret[1].split('|')
+      image_file=memegen.get_image(input_list[0],input_list[1],input_list[2])
+      print  "done"
 
-          image_name = str(msg_id) +'.jpeg'
-          with open(image_name, 'wb') as out_file:
-                shutil.copyfileobj(image_file.raw, out_file)
-          del image_file
+      image_name = str(msg_id) +'.jpeg'
+      with open(image_name, 'wb') as out_file:
+            shutil.copyfileobj(image_file.raw, out_file)
+      del image_file
+      
+      print roomId
+      sparkbot.post_msg(str(roomId),"got that")
+      print "hello"
 
+      sparkbot.post_file(str(roomId),image_name)
 
-          
-          print roomId
-          sparkbot.post_msg(str(roomId),"got that")
-          print "hello"
-
-          sparkbot.post_file(str(roomId),image_name)
-
-          try:
-              os.remove(image_name)
-          except Exception as error:
-              app.logger.error("Error removing or closing downloaded file handle", error)
-              print "error removing file" 
-              print error
+      try:
+          os.remove(image_name)
+      except Exception as error:
+          app.logger.error("Error removing or closing downloaded file handle", error)
+          print "error removing file" 
+          print error
   
 
    return 'OK'

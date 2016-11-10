@@ -27,8 +27,8 @@ def parsing():
    input_ret = sparkbot.get_msg(str(msg_id))
    #print input_list
    #print word.split()[1]
-   
-   print str(input_ret[1].encode('ascii', 'ignore'))
+   input_ret[1] = input_ret[1].encode('ascii', 'ignore')
+   print str(input_ret[1])
 
    if str(input_ret[1]) == 'help' :
       print "in help"

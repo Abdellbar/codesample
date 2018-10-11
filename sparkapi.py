@@ -5,12 +5,12 @@ import json
 class sparkapi:
 
   def __init( self, x=0):
-      self.key = 'Bearer MGVjZGIxYTItZmU2OS00OTcwLWE1NjItMjVmZjM0YmZmMTlmN2VmMTQ4OTctYTY4'
+      self.key = 'Bearer ZTg1ZGVlNTEtMDIyYy00YWU1LTllMTctYmRjMTMzNWI2MGIwNmE5YmMxNGYtNGU4'
 
   def get_msg(self,id):
     response = unirest.get("https://api.ciscospark.com/v1/messages/"+id,
       headers={
-        "Authorization": "Bearer MGVjZGIxYTItZmU2OS00OTcwLWE1NjItMjVmZjM0YmZmMTlmN2VmMTQ4OTctYTY4"
+        "Authorization": "Bearer ZTg1ZGVlNTEtMDIyYy00YWU1LTllMTctYmRjMTMzNWI2MGIwNmE5YmMxNGYtNGU4"
       }
     )
     cmnd_text = response.body['text'].split(' ',1)
@@ -21,7 +21,7 @@ class sparkapi:
   def post_msg(self,grp,msg):
     response = unirest.post("https://api.ciscospark.com/v1/messages/",
       headers={
-        "Authorization": "Bearer MGVjZGIxYTItZmU2OS00OTcwLWE1NjItMjVmZjM0YmZmMTlmN2VmMTQ4OTctYTY4",
+        "Authorization": "Bearer ZTg1ZGVlNTEtMDIyYy00YWU1LTllMTctYmRjMTMzNWI2MGIwNmE5YmMxNGYtNGU4",
         "Content-Type":"application/json"
       },
       params=json.dumps({"roomId":grp,"text":msg})
@@ -31,7 +31,7 @@ class sparkapi:
 
     response = unirest.post("https://api.ciscospark.com/v1/messages/", 
       headers={
-        "Authorization": "Bearer MGVjZGIxYTItZmU2OS00OTcwLWE1NjItMjVmZjM0YmZmMTlmN2VmMTQ4OTctYTY4",
+        "Authorization": "Bearer ZTg1ZGVlNTEtMDIyYy00YWU1LTllMTctYmRjMTMzNWI2MGIwNmE5YmMxNGYtNGU4",
         "Content-Type":"application/json"},
       params=json.dumps({"roomId":grp,"files":["https://secret-brushlands-95547.herokuapp.com/imgs/"+file_o]})
     )    
@@ -40,7 +40,7 @@ class sparkapi:
 
     response = unirest.post("https://api.ciscospark.com/v1/messages/", 
       headers={
-        "Authorization": "Bearer MGVjZGIxYTItZmU2OS00OTcwLWE1NjItMjVmZjM0YmZmMTlmN2VmMTQ4OTctYTY4",
+        "Authorization": "Bearer ZTg1ZGVlNTEtMDIyYy00YWU1LTllMTctYmRjMTMzNWI2MGIwNmE5YmMxNGYtNGU4",
         "Content-Type":"application/json"},
       params=json.dumps({"roomId":grp,"files":["https://secret-brushlands-95547.herokuapp.com/txt/"+file_o]})
     )  
